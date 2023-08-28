@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const mongoURI: string = process.env.MONGO_URI || "";
-console.log({mongoURI})
+
 mongoose
 	.connect(mongoURI)
 	.then(() => {
