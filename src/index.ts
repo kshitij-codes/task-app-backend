@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
-import express from "express";
+import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import mongoose from "./config/database";
@@ -18,7 +18,9 @@ db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function () {
 	console.log("Connected successfully");
 });
-
+app.get("/", (req: Request, res: Response) => {
+	return res.send("Task Management App on Vercel");
+});
 app.use("/api", taskRoutes);
 app.use("/api/user", userRoutes);
 
